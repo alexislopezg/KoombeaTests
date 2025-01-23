@@ -19,7 +19,6 @@ public class CharacterTest extends BaseTest {
     }
 
     @Test
-        //Check
     void givenInvalidCharacterId_whenRequestCharacter_thenResponseShouldBeReturnErrorMessage() {
         characterService.getCharacterById("-1")
                 .then()
