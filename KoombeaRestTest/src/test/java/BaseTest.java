@@ -14,7 +14,6 @@ public class BaseTest {
     public void setup() {
         RestAssured.baseURI = "https://rickandmortyapi.com/api";
 
-        //Avoid multiple calls by storing the response in a variable
         characterService = new CharacterService();
         episodeService = new EpisodeService();
         locationService = new LocationService();

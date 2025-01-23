@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.*;
 public class CharacterTest extends BaseTest {
 
     @Test
-    void givenValidCharacterId_whenRequestCharacter_thenValidCharacterDataShouldBeReturned() {
+    void givenValidCharacterId_whenRequestCharacter_thenResponseShouldBeReturnValidCharacterData() {
         characterService.getCharacterById("1")
                 .then()
                 .assertThat()
@@ -20,7 +20,7 @@ public class CharacterTest extends BaseTest {
 
     @Test
         //Check
-    void givenInvalidCharacterId_whenRequestCharacter_thenErrorMessageShouldBeReturned() {
+    void givenInvalidCharacterId_whenRequestCharacter_thenResponseShouldBeReturnErrorMessage() {
         characterService.getCharacterById("-1")
                 .then()
                 .statusCode(404)
@@ -28,7 +28,7 @@ public class CharacterTest extends BaseTest {
     }
 
     @Test
-    void givenValidCharacterIds_whenRequestCharacter_thenValidCharacterDataShouldBeReturned() {
+    void givenValidCharacterIds_whenRequestCharacter_thenResponseShouldBeReturneValidCharacterData() {
         characterService.getMultipleCharactersById("1", "2")
                 .then()
                 .assertThat()
@@ -41,7 +41,7 @@ public class CharacterTest extends BaseTest {
     }
 
     @Test
-    void givenPageNumber_whenRequestCharactersByPage_thenCharactersShouldBeReturnedOnSelectedPage() {
+    void givenPageNumber_whenRequestCharactersByPage_thenResponsShouldReturnCharactersOnSelectedPage() {
         characterService.getCharacterPage("10")
                 .then()
                 .assertThat()
@@ -54,7 +54,7 @@ public class CharacterTest extends BaseTest {
     }
 
     @Test
-    void givenInvalidPageNumber_whenRequestCharactersByPage_thenShouldReturnFirstPage() {
+    void givenInvalidPageNumber_whenRequestCharactersByPage_thenResponseShouldReturnFirstPage() {
         characterService.getCharacterPage("0")
                 .then()
                 .assertThat()
@@ -67,7 +67,7 @@ public class CharacterTest extends BaseTest {
 
 
     @Test
-    void givenNoFilters_whenRequestAllCharacters_thenAllCaractersShouldBeReturned() {
+    void givenNoFilters_whenRequestAllCharacters_thenResponseShouldReturnAllCharacters() {
         characterService.getAllCharacters()
                 .then()
                 .assertThat()
@@ -81,7 +81,7 @@ public class CharacterTest extends BaseTest {
     }
 
     @Test
-    void givenValidFilters_whenRequestCharactersWithFilters_thenShouldReturnAtLeastOneResult() {
+    void givenValidFilters_whenRequestCharactersWithFilters_thenResponseShouldReturnAtLeastOneResult() {
         characterService.getCharactersWithFilters("Chris", "Dead", "Alien", "Organic gun", "unknown")
                 .then()
                 .assertThat()
@@ -93,7 +93,7 @@ public class CharacterTest extends BaseTest {
     }
 
     @Test
-    void givenValidFilter_whenRequestCharactersWithFilters_thenShouldReturnAtLeastOneResult() {
+    void givenValidFilter_whenRequestCharactersWithFilters_thenResponseShouldReturnAtLeastOneResult() {
         characterService.getCharactersWithFilters("Rick", "", "", "", "")
                 .then()
                 .assertThat()
@@ -105,7 +105,7 @@ public class CharacterTest extends BaseTest {
     }
 
     @Test
-    void givenNonMatchingFilters_whenRequestCharactersWithFilters_thenShouldReturnErrorMessage() {
+    void givenNonMatchingFilters_whenRequestCharactersWithFilters_thenResponseShouldReturnErrorMessage() {
         characterService.getCharactersWithFilters("Test", "Dead", "", "", "")
                 .then()
                 .assertThat()

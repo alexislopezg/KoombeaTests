@@ -27,7 +27,7 @@ public class LocationTest extends BaseTest {
     }
 
     @Test
-    void givenMultipleLocationIds_whenRequestMultipleLocations_thenValidLocationDataShouldBeReturnedBasedOnIds() {
+    void givenMultipleLocationIds_whenRequestMultipleLocations_thenResponseShouldBeReturnedBasedOnValidDataIds() {
         locationService.getMultipleLocations("1", "2")
                 .then()
                 .assertThat()
@@ -68,7 +68,7 @@ public class LocationTest extends BaseTest {
     }
 
     @Test
-    void givenNonMatchingFilters_whenRequestLocationWithFilters_thenShouldReturnErrorMessage() {
+    void givenNonMatchingFilters_whenRequestLocationWithFilters_thenResponseShouldReturnErrorMessage() {
         locationService.getLocationsWithFilters("asdf", "asdf", "")
                 .then()
                 .assertThat()

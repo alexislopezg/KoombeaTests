@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.*;
 public class EpisodeTest extends BaseTest {
 
     @Test
-    void givenValidEpisodeId_whenRetrieveEpisode_thenServerShouldReturnValidEpisode() {
+    void givenValidEpisodeId_whenRetrieveEpisode_thenResponseShouldReturnValidEpisode() {
         episodeService.getEpisode("1")
                 .then()
                 .assertThat()
@@ -19,7 +19,7 @@ public class EpisodeTest extends BaseTest {
     }
 
     @Test
-    void givenInvalidEpisodeId_whenRequestEpisode_thenServerShouldReturnErrorMessage() {
+    void givenInvalidEpisodeId_whenRequestEpisode_thenResponseShouldReturnErrorMessage() {
         episodeService.getEpisode("-1")
                 .then()
                 .assertThat()
