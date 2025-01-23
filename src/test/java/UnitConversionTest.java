@@ -53,10 +53,10 @@ public class UnitConversionTest {
     @DataProvider(name = "unitConversionData")
     public Object[][] getConversionData() {
         return new Object[][]{
-                {"Length", "Inch", "Nanometer", "9", 228600000},
-                {"Volume", "Cup", "Milliliter", "5", 1250},
-                {"Area", "Square meter", "Square yard", "6", 7.1759},
-                {"Speed", "Kilometer per hour", "Meter per second", "90", 25}
+                {Converter.UnitType.LENGTH.getDisplayName(), "Inch", "Nanometer", "9", 228600000},
+                {Converter.UnitType.VOLUME.getDisplayName(), "Cup", "Milliliter", "5", 1250},
+                {Converter.UnitType.AREA.getDisplayName(), "Square meter", "Square yard", "6", 7.1759},
+                {Converter.UnitType.SPEED.getDisplayName(), "Kilometer per hour", "Meter per second", "90", 25}
         };
     }
 
@@ -81,7 +81,7 @@ public class UnitConversionTest {
     void testUnitConversionSwitch_WhenGivenValidInput_ShouldReturnTheInitialSourceUnit() {
         var converter = new Converter(driver);
 
-        converter.selectUnitType("Volume")
+        converter.selectUnitType(Converter.UnitType.VOLUME.getDisplayName())
                 .selectSourceUnit("Fluid dram")
                 .selectDestinationUnit("Bucket")
                 .clearInput()

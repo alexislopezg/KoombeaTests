@@ -33,5 +33,5 @@ Ensure the following are installed on your system:
 mvn -Dtest=UnitConversionTest test`
 5. **Start the API tests**
 `cd KoombeaTest/KoombeaRestTest/
-mvn -Dtest=RickAndMortyApiTest test`  
+mvn -Dtest=characterTests.CharacterTest test`  
 
