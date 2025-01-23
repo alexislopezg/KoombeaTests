@@ -7,13 +7,31 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class Converter extends Page {
+public class Converter extends PageObject {
     private final WebDriverWait wait;
 
     public Converter(AndroidDriver driver) {
         super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
+
+    public enum UnitType {
+        LENGTH("Length"),
+        VOLUME("Volume"),
+        AREA("Area"),
+        SPEED("Speed");
+
+        private final String displayName;
+
+        UnitType(String displayName) {
+            this.displayName = displayName;
+        }
+
+        public String getDisplayName() {
+            return displayName;
+        }
+    }
+
 
     @AndroidFindBy(id = "com.ba.universalconverter:id/target_value")
     private WebElement conversionResult;
@@ -23,6 +41,7 @@ public class Converter extends Page {
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id='com.ba.universalconverter:id/select_unit_spinner'])[2]")
     private WebElement destinationUnit;
+
 
     public Converter selectUnitType(String unit) {
         driver.findElement(AppiumBy.accessibilityId("Open navigation drawer")).click();
