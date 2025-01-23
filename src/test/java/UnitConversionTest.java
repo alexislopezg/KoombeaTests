@@ -1,9 +1,6 @@
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -15,7 +12,7 @@ public class UnitConversionTest {
 
     protected AndroidDriver driver;
 
-    @BeforeTest
+    @BeforeMethod
     public void setUp() {
         //Setup desired capabilities
         DesiredCapabilities capabilities = getDesiredCapabilities();
@@ -32,7 +29,7 @@ public class UnitConversionTest {
 
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         if (driver != null)
             driver.quit();
