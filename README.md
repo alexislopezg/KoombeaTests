@@ -29,9 +29,9 @@ Ensure the following are installed on your system:
 3. **Start Appium Server (for mobile tests)**
 `appium` 
 4. **Start the mobile tests**
-`cd KoombeaTest
-mvn -Dtest=UnitConversionTest test`
+`cd KoombeaTests
+mvn test`
 5. **Start the API tests**
-`cd KoombeaTest/KoombeaRestTest/
-mvn -Dtest=characterTests.CharacterTest test`  
+`cd KoombeaTests/KoombeaRestTest/
+mvn test`  
 
